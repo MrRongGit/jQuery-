@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="demo" style="width:100px;height:100px;background-color:red;"></div> -->
+    <div id="demo2" style="width:100px;height:100px;background-color:orange;position: absolute;top:0px;left:0px;"></div>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        // typeof() 里边的数据类型
+        // $.type() 里边是什么数据
+        // console.log( $.type(123) );
+        // console.log( $.type(true) ); 
+        // console.log( $.type(function() {}) );
+        // console.log( $.type('123') );
+        // console.log( $.type(null) );
+        // console.log( $.type({}) );
+        // console.log( $.type([1,2,3,4]) );
+        // console.log( $.type(new Number()) + ' ' + typeof(new Number()) );
+        // console.log( $.type(new Person()) );
+        // function Person() {}
+
+
+        // isArray 判断是不是数组
+        // console.log( $.isArray([1, 2, 3, 4]) );
+
+        // isFunction 判断是不是函数 
+        // console.log( $.isFunction(function(){}) )
+
+        // isWindow 判断是不是window  可用于iframe跨域编程
+        // console.log( $.isWindow(window) )
+
+        // trim 去除前后多余的空格
+        // let str = '    12 3    ';
+        // console.log(str.trim());// 此为原生写法
+        // console.log($.trim(str));// 此为jQuery写法 功能一致 但jQuery写法可以填参数
+
+        // proxy 改变this指向 
+        // function show () {
+        //     console.log(this);
+        // };
+        // var obj = {
+        //     name: 'rcw',
+        //     age: 18
+        // };
+        // 将show的this指向改变到obj 但要重新var个对象
+        // var showProxy = $.proxy(show, obj);
+        // showProxy();
+        // proxy应用
+        // var list = {
+        //     init : function () {
+        //         this.ms = 123;
+        //         this.dom = document.getElementById('demo');
+        //         this.bindEvent();
+        //     },
+
+        //     bindEvent : function () {
+        //         this.dom.onclick = $.proxy(this.show, this);
+        //     },
+
+        //     show : function () {
+        //         console.log(this.produseMs(this.ms));
+        //     },
+
+        //     produseMs : function (ms) {
+        //         return ms + 234;
+        //     }
+
+        // }
+        // list.init();
+
+        // noConflict 防止变量命名冲突 $ 防止与其他库冲突 属于历史遗留问题 因为jQuery够强大 
+        // var C = $.noConflict();
+        // C('#demo').css({background: 'orange'})
+
+        // each  一个通用的迭代函数，它可以用来无缝迭代对象和数组。数组和类似数组的对象通过一个长度属性（如一个函数的参数对象）来迭代数字索引，从0到length - 1。其他对象通过其属性名进行迭代。
+        // var arr = [1, 2, 3, 4];
+        // $.each(arr, function (index, ele) {
+        //     console.log(index, ele);
+        // })
+
+        // map 将一个数组中的所有元素转换到另一个数组中。
+        // var arr = [1, 2, 3, 4];
+        // var a = $.map(arr, function (index, ele) {
+        //     return ele * index
+        // })
+        // console.log(a);
+
+        // parseJSON 严格json字符串转换成对象-原生JSON.parse();
+        // var json = '{"name": "rcw", "age": 18, "class": "liaocheng"}';
+        // console.log( $.parseJSON(json) );
+
+        // makeArray 传一个类数组 变为数组
+        // var obj = {
+        //     0 : "a",
+        //     1 : "b",
+        //     2 : "c",
+        //     length : 3
+        // }
+        // var arr = $.makeArray(obj);
+
+        // $.extent 加到工具方法里面
+        // $.fn.extent  加到实例方法里面
+        // 1.扩展方法 2.浅层克隆 3.深层克隆
+        // $.extend({
+
+        //     // 随机数
+        //     definedMandom : function (start, final) {
+        //         var len = final - start;
+        //         return Math.random() * len + start;
+        //     }
+
+        // })
+
+        // $.fn.extend({
+
+        //     drag : function () {
+        //         var disX,
+        //             disY,
+        //             self = this;
+                
+        //         $(this).on('mousedown', function (e) {
+        //             disX = e.pageX - $(this).offset().left;
+        //             disY = e.pageY - $(this).offset().top;
+
+        //             $(document).on('mousemove', function (e) {
+        //                 $(self).css({left : e.pageX - disX, top : e.pageY - disY});
+        //             });
+
+        //             $(document).on('mouseup', function (e) {
+        //                 $(document).off('mousemove').off('mouseup');
+        //             })
+                    
+        //         });
+
+        //         return this;
+                   
+        //     }
+            
+        // });
+        // $('#demo2').drag();
+
+        // 浅层克隆
+        var obj1 = {
+            name : 'oldR',
+            age : 30,
+            money : 1000,
+            smoke : false,
+            gilrFriend : {
+                name : 'xiaowang'
+            }
+        }
+
+        var obj2 = {
+            name : 'smallR',
+            age : 18,
+            money : 100
+        }
+        // 将obj1复制到obj2中 有的覆盖 没有的补上 可无限添参数 先来后到 会面的会覆盖前面的
+        // $.extend(obj2, obj1, .....);
+</script>
+</body>
+
+</html>

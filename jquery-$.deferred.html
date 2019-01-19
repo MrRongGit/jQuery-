@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./jquery.js"></script>
+    <script>
+
+        // 延时
+        var df = $.Deferred();
+        // done 成功状态 fail 失败状态 progress 正在进行状态
+        // 注册成功的回调函数
+        df.done(function () {
+            console.log('成功');
+        });
+        // 注册失败的回调函数
+        df.fail(function () {
+            console.log('失败');
+        });
+        // 注册失败的回调函数
+        df.progress(function () {
+            console.log('进行时');
+        });
+        // 做一件异步的事情
+        setInterval(function () {
+            var score = Math.random() * 100;
+            if (score > 70) {
+                df.resolve();// 成功Deferred（延迟）对象，并根据给定的args参数调用任何完成回调函数
+            } else if (score < 70 ) {
+                df.reject();// 拒绝Deferred（延迟）对象，并根据给定的args参数调用任何失败回调函数
+            } else {
+                df.notify();// 根据给定的 args参数 调用Deferred（延迟）对象上进行中的回调 
+            }
+        },10);
+    </script>
+</body>
+
+</html>

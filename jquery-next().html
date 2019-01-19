@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <button>change</button>
+    <span class="demo">rcw</span>
+    <p class="demo">rcw</p>
+    <script src="./jquery.js"></script>
+    <script>
+        // 点击button时 下一个兄弟元素生效
+        $('button').click(function() {
+            $(this)
+                .next()
+                    .css({color: 'red'})
+        })
+        // 点击button时 下一个兄弟元素是p标签时才会生效
+        $('button').click(function() {
+            $(this)
+                .next('p')
+                    .css({color: 'red'})
+        })
+
+      
+    </script>
+</body>
+
+</html>

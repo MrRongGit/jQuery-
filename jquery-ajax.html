@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery.js"></script>
+    <script>
+
+    // https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person
+    // https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su  
+    // 参数 obj
+    // 属性 url
+    // 请求方式 type
+    // data: {} 参数 信息
+    // success: 成功请求后的处理函数
+    // error 请求失败后的处理函数
+    // complete 请求完成后的处理函数 最后执行
+    // context 改变函数上下文
+    // async true false 是否同步
+    // dataType: 'jsonp'
+    // $.ajax({
+    //     url: 'https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person',
+    //     type: 'GET',
+    //     success: function (res) {
+    //         $.each(res.data, function (index, ele) {
+    //             console.log(ele);
+    //         })
+    //     },
+    //     error: function (e) {
+    //         console.log(e.status, e.statusText);
+    //     } 
+
+
+    // })
+        function deal (res) {
+            console.log(res);
+        }
+    $.ajax({
+        url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+        type: 'GET',
+        data: {
+            wd: 'nba',
+            cb: 'deal'
+        },
+        dataType: 'jsonp',
+        success: function (res) {
+            $.each(res.data, function (index, ele) {
+                console.log(ele);
+            })
+        },
+        error: function (e) {
+            console.log(e.status, e.statusText);
+        } 
+
+
+    })
+
+</script>
+</body>
+
+</html>

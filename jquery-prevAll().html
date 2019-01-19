@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        
+        a：<input type="checkbox">
+        b：<input type="checkbox">
+        c：<input type="checkbox">
+        全选：<input type="checkbox"></input>
+        <input type="submit" value="login"></input>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        $('input[type="checkbox"]').eq(3).click(function() {
+            if( $(this).prop('checked') ) {
+                $(this).prevAll('input[type="checkbox"]').prop('checked', true);
+            }else {
+                $(this).prevAll('input[type="checkbox"]').prop('checked', false);
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper .style1 {
+            background:red;
+        }
+        .wrapper .style1 li {
+            color:yellowgreen;
+        }
+        .wrapper .style2 {
+            background:orange;
+        }
+        .wrapper .style2 li {
+            color:blue;
+        }
+
+
+
+        .wrapper.active .style1 {
+            background:orange;
+        }
+        .wrapper.active .style1 li {
+            color:blue;
+        }
+        .wrapper.active .style2 {
+            background:red;
+        }
+        .wrapper.active .style2 li {
+            color:yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="style1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul class="style2">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+
+        $('.wrapper').click(function(e) {
+            if($('.wrapper').hasClass('active')) {
+                $('.wrapper').removeClass('active');
+            }else {
+                $('.wrapper').addClass('active');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

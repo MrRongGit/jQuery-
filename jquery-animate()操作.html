@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width:100px;
+            height:100px;
+            position:absolute;
+            background-color:orange;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="stopBtn">stop</button>
+    <button id="finishBtn">finish</button>
+    <button id="startBtn">start</button>
+    <div class="demo"></div>
+    <script src="./jquery.js"></script>
+    <script>
+       
+       $('#startBtn').on('click', function() {
+            // 内置队列
+            $('.demo')
+                .animate({width: '+=50', height: '+=50', left: '+=100', top: '+=100'})
+                    .delay(2000) // 延迟2000毫秒直接下一步
+                        .animate({width: '+=50', height: '+=50', left: '+=100', top: '+=100'})
+       })
+
+       $('#stopBtn').on('click', function() {
+            $('.demo')
+                .stop();// 停止动画 可填true或true,true   true可停止以后所有运动 true,true可以停止运动 并瞬间到目标点
+       })
+
+       $('#finishBtn').on('click', function() {
+            $('.demo')
+                .finish();// 直接到最后的目标点
+       })
+        // $('.demo').animate({width: '+=50', height: '+=50', left: '+=100', top: '+=100'})
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            width: 200px;
+            height: 50px;
+            background-color: orange;
+        }
+        .aaa {
+            width:100px;
+            height:100px;
+            background:yellowgreen
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">content</div>
+    <script src="./jquery.js"></script>
+    <script>
+
+        // $() 中可以填写复杂的结构 
+        $('<div class="aaa"><p style="color:red">abc</p></div>').appendTo( $('body') )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+
+        .tpl {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo" style="color:orange">aa</div>
+    <table class="stb">
+        <tr>
+            <th>班级</th>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+
+
+
+    </table>
+    <script src="./jquery.js"></script>
+    <script>
+        // $('.demo').click(function() {
+        //     alert(0);
+        // })
+        // 复制demo 无论是样式表还是行间样式或者同级类名 都会进行复制 如果要复制事件 需给clone加个true条件
+        // $('.demo').clone(true).appendTo( $('body') );
+
+
+        var studentArr = [{
+                class: 1,
+                name: 'rcw',
+                age: 18
+            },
+            {
+                class: 2,
+                name: 'rcw2',
+                age: 19
+            }
+        ]
+        var wrapper = $('.stb');
+        var str = '';
+        studentArr.forEach(function (ele, index) {
+            // var oCloneDom = $('.tpl').clone().removeClass('tpl');
+            // oCloneDom
+            //     .find('td')
+            //         .eq(0)
+            //             .text(ele.class)
+            //                 .next()
+            //                     .text(ele.name)
+            //                         .next()
+            //                             .text(ele.age);
+            // wrapper.append(oCloneDom)
+            str += `<tr>
+                        <td>${ele.class}</td>
+                        <td>${ele.name}</td>
+                        <td>${ele.age}</td>
+                    </tr>`;
+            wrapper.append(str);
+
+        })
+    </script>
+</body>
+
+</html>

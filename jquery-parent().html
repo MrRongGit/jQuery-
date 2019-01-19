@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div class="wrapper"></div>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        var showArrs = [
+        {
+            name : 'nike',
+            id : '101'
+        },{
+            name : 'adidas',
+            id : '102'
+        }
+        ]
+
+
+        var str = '';
+
+        showArrs.forEach(function (ele, index) {
+            str += `<div class="show" data-id="${ele.id}"><p>${ele.name}</p><button>add</button></div>`
+            console.log(ele, index);
+        })
+
+        $('.wrapper').html(str);
+
+        var carArr = [];
+        $('button').click(function() {
+            // 将button父级的data-id属性 push到carArr数组中 parents则时是获取所有祖先元素 parents()中可以填参数
+            carArr.push( $(this).parent().attr('data-id') )
+        })
+        console.log( $('button').parents() )
+
+    </script>
+</body>
+
+</html>

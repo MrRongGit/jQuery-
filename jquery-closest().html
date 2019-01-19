@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="ul">
+            <li>
+                <ul>
+                    <li><button>add</button></li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        // 找离button最近的祖先元素ul
+        console.log( $('button').closest('ul') )
+    </script>
+</body>
+
+</html>

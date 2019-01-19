@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <span class="demo">span</span>
+    <p class="demo">p</p>
+    <button>change</button>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        $('button').click(function() {
+            $(this)
+                .prev()
+                    .css({color: 'red'})
+        })
+        // 点击button时 上一个兄弟元素是p标签时才会生效
+        $('button').click(function() {
+            $(this)
+                .prev('p')
+                    .css({color: 'red'})
+        })
+
+      
+    </script>
+</body>
+
+</html>

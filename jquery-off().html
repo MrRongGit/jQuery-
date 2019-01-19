@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <a href="http://www.baidu.com">baidu</a>
+    <script src="./jquery.js"></script>
+    <script>
+        // off 解除事件
+        $('a').on('click', function () {
+            window.open('http://www.taobao.com');
+            return false;
+        });
+        $('a').off('click');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>水果</h1>
+        全选：<input type="checkbox"></input>
+        a：<input type="checkbox">
+        b：<input type="checkbox">
+        c：<input type="checkbox">
+        <h1>水果2</h1>
+        全选：<input type="checkbox"></input>
+        a2：<input type="checkbox">
+        b2：<input type="checkbox">
+        c2：<input type="checkbox">
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        // 通过选择器，DOM节点，或jQuery对象得到每个元素之后的所有兄弟元素，但不包括匹配的元素。
+        $('h1').next().click(function() {
+            if( $(this).prop('checked') ) {
+                $(this).nextUntil('h1', 'input[type="checkbox"]').prop('checked', true);
+            }else {
+                $(this).nextUntil('h1', 'input[type="checkbox"]').prop('checked', false);
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

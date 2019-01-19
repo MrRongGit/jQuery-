@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+    <script src="./jquery.js"></script>
+    <script>
+        // on 
+        // 1. events 2. selector 3. data 4. handle
+        // events
+        // 类型: String
+        // 一个或多个空格分隔的事件类型和可选的命名空间，或仅仅是命名空间，比如"click", "keydown.myPlugin", 或者 ".myPlugin"。
+        // selector
+        // 类型: String
+        // 一个选择器字符串，用于过滤出被选中的元素中能触发事件的后代元素。如果选择器是 null 或者忽略了该选择器，那么被选中的元素总是能触发事件。
+        // data
+        // 类型: Anything
+        // 当一个事件被触发时，要传递给事件处理函数的event.data。
+        // handler(eventObject)
+        // 类型: Function()
+        // 事件被触发时，执行的函数。若该函数只是要执行return false的话，那么该参数位置可以直接简写成 false。
+        // $('.demo').on('click', function () {
+        //     alert(0)
+        // });
+        $('.demo').on({
+            click: function () {
+                console.log('click');
+            },
+            mouseenter: function () {
+                console.log('mouseenter');
+            },
+            mouseleave: function () {
+                console.log('mouseleave');
+            }
+        });
+    </script>
+</body>
+
+</html>

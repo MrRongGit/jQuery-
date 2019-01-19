@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery.js"></script>
+    <script>
+
+        var cb = $.Callbacks();
+
+        function a (x, y) {
+            console.log('a', x, y);
+        }
+
+        function b (x, y) {
+            console.log('b', x, y);
+        }
+
+        // 回调列表中添加一个回调或回调的集合。
+        cb.add(a, b);
+
+        // 传入指定的参数调用所有的回调
+        cb.fire('10', '20');
+    </script>
+</body>
+
+</html>

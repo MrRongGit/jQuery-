@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        all：<input type="checkbox"></input>
+        <h1>吃货清单</h1>
+        all：<input type="checkbox"></input>
+        <h2>水果</h2>
+        全选：<input type="checkbox"></input>
+        a：<input type="checkbox">
+        b：<input type="checkbox">
+        c：<input type="checkbox">
+        <h2>水果2</h2>
+        全选：<input type="checkbox"></input>
+        a2：<input type="checkbox">
+        b2：<input type="checkbox">
+        c2：<input type="checkbox">
+        <h2></h2>
+        <h1>明星清单</h1>
+        all：<input type="checkbox"></input>
+        <h2>nba</h2>
+        全选：<input type="checkbox"></input>
+        a：<input type="checkbox">
+        b：<input type="checkbox">
+        c：<input type="checkbox">
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        $('input').eq(0).click(function() {
+            if( $(this).prop('checked') ) {
+                $(this).nextAll('input[type="checkbox"]').prop('checked', true);
+            }else {
+                $(this).nextAll('input[type="checkbox"]').prop('checked', false);
+            }
+        })
+        $('h1').next().click(function() {
+            if( $(this).prop('checked') ){
+                $(this).nextUntil('h1', 'input[type="checkbox"]').prop('checked', true)
+            }else {
+                $(this).nextUntil('h1', 'input[type="checkbox"]').prop('checked', false)
+            }
+        })
+        $('h2').next().click(function() {
+            if( $(this).prop('checked') ) {
+                $(this).nextUntil('h2', 'input[type="checkbox"]').prop('checked', true);
+            }else {
+                $(this).nextUntil('h2', 'input[type="checkbox"]').prop('checked', false);
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

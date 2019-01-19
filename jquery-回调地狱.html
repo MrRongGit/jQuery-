@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        .wrapper {
+            width:600px;
+            overflow: hidden;
+            border:1px solid #000;
+            margin:100px auto 0px;
+        }
+        .wrapper .tpl {
+            display: none;
+        }
+        .movieSection img {
+            width:100%;
+            height:150px;
+            cursor: pointer;
+        }
+        .movieSection {
+            width:180px;
+            height:180px;
+            float:left;
+            padding:10px;
+        }
+        .movieSection h3 {
+            height:30px;
+            text-align: center;
+        }
+        .mask {
+            width:600px;
+            margin:0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="tpl">
+            <img src="" alt="">
+            <h3></h3>
+        </div>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+
+        $.ajax({
+            url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/power',
+            type: 'POST',
+            data: {
+                username: 'rcw',
+                password: '123'
+            },
+            success: function (res) {
+                if (res.data.power == 'root') {
+                    // vip 网络地址发送请求
+                    $.ajax({
+                        url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/movieList',
+                        type: 'GET',
+                        success: function (res) {
+                            let data = res.data;
+                            let $Wrapper = $('.wrapper');
+                            $.each(data, function (index, ele) {
+                                // console.log(index, ele);
+                                let $MovieSection = $('.tpl').clone().removeClass('tpl').addClass('movieSection');
+                                $MovieSection.data({id: ele.id}).on('click', function () {
+                                    $.ajax({
+                                        url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/movieInfo',
+                                        type: 'GET',
+                                        data: {
+                                            movieId: $(this).data('id')
+                                        },
+                                        success: function (res) {
+                                            
+                                            let data = res.data;
+                                            let direct = data.direct;
+                                            let gut = data.gut;
+                                            let mainActor = data.mainActor;
+                                            let screenwriter = data.screenwriter;
+                                            let HtmlStr = ` <div class="mask">
+                                                                <p>导演:${direct}</p>
+                                                                <p>主演:${mainActor}</p>
+                                                                <p>编剧:${screenwriter}</p>
+                                                                <p>剧情:${gut}</p>
+                                                            </div>`;
+                                            $('body').append(HtmlStr);
+                                        }
+                                    });
+                                }).children().eq(0).attr('src', ele.poster)
+                                                        .next().text(ele.name);
+                                $Wrapper.append($MovieSection)
+                            });
+                        }
+                    })
+                } else {
+                    // 非vip 网络地址发送请求
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

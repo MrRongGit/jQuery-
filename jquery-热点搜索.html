@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .tpl {
+            display: none;
+        }
+
+        .clearF::after {
+            content: '';
+            display: block;
+            clear: both;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            border: 1px solid #ccc;
+            padding: 10px 5px;
+            width: 350px;
+            margin: 100px auto 0px;
+        }
+
+        .headSection {
+            margin-bottom: 10px;
+        }
+
+        .headSection .hot {
+            font-size:18px;
+            font-weight: bold;
+            float:left;
+        }
+
+        .headSection .change {
+            float: right;
+            color:#08f;
+            cursor: pointer;
+        }
+        
+        .showSection .number {
+            color: #fff;
+            background-color: #0ef;
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            text-align: center;
+            line-height:25px;
+        }
+
+        .showSection .mes {
+            float:right;
+        }
+
+        .showSection .mes::after {
+            content: '';
+            display: inline-block;
+            width:15px;
+            height:15px;
+            background-size:100% 100%;
+        }
+
+        .showSection .mes.up::after {
+            background-image: url(./up.jpg);
+        }
+        .showSection .mes.down::after {  
+            background-image: url(./down.jpg);
+        }
+        .showSection li {
+            padding:5px;
+            border-bottom:1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="headSection clearF">
+            <span class="hot">搜索热点</span>
+            <span class="change">换一换</span>
+        </div>
+        <ul class="showSection">
+            <li class="tpl clearF">
+                <span class="number">1</span>
+                <span class="title">标题</span>
+                <span class="mes">33333</span>
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script src="./serverData.js"></script>
+    <script>
+        
+        (function (data) {
+            // 初始化变量
+            var $Wrapper = $('.wrapper');
+            var $ShowSection = $('.wrapper').find('.showSection');
+            var colorsArray = ['#f54545', '#ff8547', '#ffac38'];
+
+            var curPage = 0;
+            // 算出应有多少页
+            var totalPage = Math.ceil( data.length / 10 );
+            // 初始化样式
+            $ShowSection.hide();
+
+            // 点击切换功能
+            function bindEvent () {
+                $Wrapper.find('.change').on('click', function () {
+                    curPage = ++curPage % totalPage;
+
+                    renderPage(data);
+                })
+            }
+
+            function renderPage (data) {
+                // 切换后清空之前的值
+                $ShowSection.hide().find('.showItem').remove();
+
+                // 根据数据渲染页面
+                var len = (data.length - curPage * 10) >= 10 ? 10 : data.lenget - curPage * 10;
+                
+                // 控制每一页应该渲染多少数据
+                for (var i = 0; i < len; i ++) {
+                    var $Clone = $Wrapper.find('.tpl').clone().removeClass('tpl').addClass('showItem');
+                    var ele = data[i + curPage * 10];
+
+                    $Clone.children('span').eq(0)
+                        .text(i + curPage * 10 + 1)
+                            .css({'backgroundColor': curPage == 0 && colorsArray[i + curPage]})
+                                .next()
+                                    .text(ele.title)
+                                        .next()
+                                            .text(ele.search)
+                                                .addClass(ele.search > ele.onceSearch ? 'up' : 'down');
+                    $ShowSection.append($Clone);
+                }
+
+                // 当应有的数据渲染到页面时 显示
+                $ShowSection.fadeIn();
+            }
+
+            renderPage(data);
+            bindEvent();
+
+        })(data)
+    </script>
+</body>
+
+</html>

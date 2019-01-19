@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+        
+</head>
+
+<body>
+    <div class="demo" rcw="rcw"></div>
+    <input type="checkbox" checked="">
+    <script src="./jquery.js"></script>
+    <script>
+        //attr和prop的区别：jQuery认为attribute的checked selecked disabled就是表示该属性初始状态的值，property的checked selecked disabled表示该属性实时状态的值(true false)
+        // prop取值
+        console.log( $('div').prop('class') );
+        console.log( $('div').prop('rcw') );
+        console.log( $('input').prop('checked') );
+        // prop赋值
+        $('div').prop('id', 'demo')
+    </script>
+</body>
+
+</html>

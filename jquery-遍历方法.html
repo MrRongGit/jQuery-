@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <p>
+        <span>1</span>
+        <i>2</i>
+        <span>3</span>
+        <i>4</i>
+    </p>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        // $('li').text(function () {
+
+        // }).addClass(function () {
+
+        // })
+
+        // 遍历一个jQuery对象，为每个匹配元素执行一个函数。
+        // $('li').each(function (index, ele) {
+        //     $(ele)
+        //         .text(index)
+        //             .addClass('demo' + index);
+        // });
+
+        // children 所有子元素
+        // $('p').children().each(function (index, ele) {
+        //     $(ele)
+        //         .text(index)
+        //             .addClass('demo' + index);
+        // });
+
+        // index 从匹配的元素中搜索给定元素的索引值，从0开始计数
+        // $('ul').on('click', 'li', function (e) {
+        //     console.log( $(e.target).index() );
+        // });
+        
+        $('p').children().on('click', function(e) {
+            console.log( $('p span').index( $(e.target) ) );
+        })
+        // console.log( $('p span').index( $('p span:eq(1)') ) );
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width:3000px;
+            height:3000px;
+        }
+
+        .wrapper {
+            position:absolute;
+            width:300px;
+            height:300px;
+            background-color: red;
+            left:100px;
+            top:100px;
+        }
+
+        .wrapper .demo {
+            width:50px;
+            height:50px;
+            left:50px;
+            top:50px;
+            padding:20px;
+            background-color:orange;
+            position:absolute;
+            border: 5px solid #000;
+            margin:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="demo"></div>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        
+        // offset 距离左侧的x y轴的值 可填值
+        // console.log( $('.demo').offset() );
+        // $('.demo').offset({left: 100, top: 100});
+
+
+        // position 相对于父级的定位x y轴的值 不可赋值
+        // console.log( $('.demo').position() );
+
+        // 滚动条距离 可赋值
+        // console.log( $(window).scrollTop() );
+        // console.log( $(window).scrollLeft() );
+        // $(window).scrollTop(100);
+        
+
+        // 获取demo的宽度 高度 可赋值
+        // console.log( $('.demo').width() );
+        // console.log( $('.demo').height() );
+        // console.log( $('.demo').css('height') )
+
+        // 获取demo的宽度 高度 可赋值 包括padding值
+        // console.log( $('.demo').innerWidth() );
+        // console.log( $('.demo').innerHeight() );
+
+        // 获取demo的宽度 高度 可赋值 包括padding值与border值 可填参数true 即加上margin值
+        // console.log( $('.demo').outerWidth() );
+        // console.log( $('.demo').outerHeight() );
+   </script>
+</body>
+
+</html>

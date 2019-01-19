@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <form action="#" method="GET">
+        <h3>选择你喜欢的明星</h3>
+        <select name="star">
+            <option value="s">詹姆斯</option>
+            <option value="a">库里</option>
+            <option value="b">奥拉迪波</option>
+        </select>
+        <h3>一句话简单介绍你喜欢的明星</h3>
+        <input type="text" name="easy" value="rcw">
+        三分准：<input type="checkbox" name="special" value="three">
+        组织好：<input type="checkbox" name="special" value="org">
+        突破强：<input type="checkbox" name="special" value="strong">
+        <h3>具体描述技术特点</h3>
+        <textarea name="des" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="login">
+    </form>
+    <script src="./jquery.js"></script>
+    <script>
+        // 获取表单元素相关的val值
+        console.log($('input[type="checkbox"]')
+            .eq(2)
+                .val());
+            // serializeArray将用作提交的表单元素的值编译成拥有name和value对象组成的数组
+            $('form').serializeArray();
+        
+        // $('input[type="checkbox"]').val(function(index, oldValue) {
+        //     return oldValue + index;
+        // })
+
+        // val 赋值
+        $('input[type="checkbox"]').eq(0).val('aaaa');
+
+      
+    </script>
+</body>
+
+</html>

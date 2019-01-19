@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul>
+            <li>1</li>
+            <li class="demo">2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        // filter() 方法将匹配元素集合缩减为匹配指定选择器的元素
+        // $('.wrapper ul')
+        //     .css({listStyle: 'none'})
+        //         .find('li')
+        //             .filter('.demo')
+        //                 .css({color: 'red'});
+
+
+        // $('.wrapper ul li').filter(function(index, ele) {
+        //     return index %2 == 0;
+        // }).css({color: 'red'});
+    </script>
+</body>
+
+</html>

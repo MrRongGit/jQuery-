@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: orange;
+        }
+
+        .demo.active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo active"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <script src="./jquery.js"></script>
+    <script>
+        $('.demo').click(function(e) {
+            $('.demo').removeClass('active');
+            $(this).addClass('active');
+        })
+    </script>
+</body>
+
+</html>

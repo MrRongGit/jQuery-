@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+
+    <input id="whichkey" value="type something">
+    <div id="log"></div>
+    <script>
+
+        // which 针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键。
+        $('#whichkey').bind('keydown', function (e) {
+            $('#log').html(e.type + ': ' + e.which);
+        });
+    </script>
+
+</body>
+
+</html>
